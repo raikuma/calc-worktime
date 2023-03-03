@@ -12,3 +12,5 @@
 1. 포탈 로그인 후 portal.txt 내 스크립트 실행
 2. 근무시간이 기록된 부분을 복사
 3. 상단 텍스트 입력칸에 붙여넣기 후 Fill with text 클릭
+
+![screenshot](images/screenshot.png)
