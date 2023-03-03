@@ -1,0 +1,88 @@
+<!-- HTML5 Mobile Template -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Worktime Calculator</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<style>
+		label { padding-top: 0.5rem;}
+	</style>
+</head>
+
+<body>
+	<div data-role="page" id="page1">
+		<div data-role="header">
+			<h1>Worktime Calculator</h1>
+		</div>
+		<div data-role="main" class="ui-content">
+
+			<textarea id="text_input" placeholder="Text from Jo In's script"></textarea>
+			<input type="submit" id="text_submit_btn" value="Fill with text">
+			<input type="submit" id="time_reset_btn" value="Reset">
+
+			<form id="form">
+				<div data-role="fieldcontain">
+					<label for="mon_start">Mon Start</label>
+					<input type="time" name="mon_start" id="mon_start" value="10:00">
+					<label for="mon_start">Mon End</label>
+					<input type="time" name="mon_end" id="mon_end" value="19:00">
+				</div>
+				<div>
+					<p id="mon_result"></p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="tue_start">Tue Start</label>
+					<input type="time" name="tue_start" id="tue_start" value="10:00">
+					<label for="tue_start">Tue End</label>
+					<input type="time" name="tue_end" id="tue_end" value="19:00">
+				</div>
+				<div>
+					<p id="tue_result"></p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="wed_start">Wed Start</label>
+					<input type="time" name="wed_start" id="wed_start" value="10:00">
+					<label for="wed_start">Wed End</label>
+					<input type="time" name="wed_end" id="wed_end" value="19:00">
+				</div>
+				<div>
+					<p id="wed_result"></p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="thu_start">Thu Start</label>
+					<input type="time" name="thu_start" id="thu_start" value="10:00">
+					<label for="thu_start">Thu End</label>
+					<input type="time" name="thu_end" id="thu_end" value="19:00">
+				</div>
+				<div>
+					<p id="thu_result"></p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="fri_start">Fri Start</label>
+					<input type="time" name="fri_start" id="fri_start" value="10:00">
+					<label for="fri_start">Fri End</label>
+					<input type="time" name="fri_end" id="fri_end" value="19:00">
+				</div>
+				<div>
+					<p id="fri_result"></p>
+				</div>
+				<input type="submit" id="submit_btn" value="Calculate">
+			</form>
+
+			<p id="result"></p>
+
+		</div>
+		<div data-role="footer" style="padding-left: 0.5rem;">
+			<p>wocho@yonsei.ac.kr</p>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
