@@ -1,5 +1,7 @@
 # 연세대 전문연구요원 유연근무제 계산기
 
+https://raikuma.github.io/calc-worktime/
+
 ## Usage
 
 ### 직접입력 방식
