@@ -1,6 +1,14 @@
 const HOUR = 1000 * 60 * 60;
 const MINUTE = 1000 * 60;
 
+const date_id_list = [
+    "mon_start", "mon_end",
+    "tue_start", "tue_end",
+    "wed_start", "wed_end",
+    "thu_start", "thu_end",
+    "fri_start", "fri_end",
+];
+
 function calc_worktime(start_time, end_time) {
     var start = new Date(start_time);
     var end = new Date(end_time);
@@ -110,15 +118,37 @@ function sec_to_string(sec) {
     return hours + "h " + minutes + "m";
 }
 
-$(document).ready(function () {
-    var date_id_list = [
-            "mon_start", "mon_end",
-            "tue_start", "tue_end",
-            "wed_start", "wed_end",
-            "thu_start", "thu_end",
-            "fri_start", "fri_end",
-    ];
+function save_cookie()
+{
+    for (var i = 0; i < date_id_list.length; i += 2) {
+        var start_time = $("#" + date_id_list[i]).val();
+        var end_time = $("#" + date_id_list[i + 1]).val();
+        var day = date_id_list[i].split("_")[0];
+        var start_cookie_name = day + "_start";
+        var end_cookie_name = day + "_end";
+        Cookies.set(start_cookie_name, start_time, { expires: 365 });
+        Cookies.set(end_cookie_name, end_time, { expires: 365 });
+    }
+}
 
+function load_cookie()
+{
+    for (var i = 0; i < date_id_list.length; i += 2) {
+        var day = date_id_list[i].split("_")[0];
+        var start_cookie_name = day + "_start";
+        var end_cookie_name = day + "_end";
+        var start_time = Cookies.get(start_cookie_name);
+        var end_time = Cookies.get(end_cookie_name);
+        if (start_time != undefined) {
+            $("#" + date_id_list[i]).val(start_time);
+        }
+        if (end_time != undefined) {
+            $("#" + date_id_list[i + 1]).val(end_time);
+        }
+    }
+}
+
+$(document).ready(function () {
     $("#submit_btn").click(function (e) {
         // prevent default submit action
         e.preventDefault();
@@ -148,6 +178,8 @@ $(document).ready(function () {
         result += "Total rest time: " + sec_to_string(total_rest_time) + "<br>";
         result += "Total time: " + sec_to_string(total_total_diff) + "<br>";
         $("#result").html(result);
+
+        save_cookie();
     });
 
     $("#text_submit_btn").click(function (e) {
@@ -176,5 +208,14 @@ $(document).ready(function () {
             $("#" + date_id_list[i]).val("10:00");
             $("#" + date_id_list[i+1]).val("19:00");
         }
+
+        save_cookie();
     });
+
+    $("input[type='time']").change(function (e) {
+        save_cookie();
+    });
+    
+
+    load_cookie();
 });
