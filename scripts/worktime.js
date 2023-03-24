@@ -222,8 +222,7 @@ $(document).ready(function () {
 
         var id = $(this).attr('id');
         var intput_id = id.split("_")[0] + "_" + id.split("_")[1];
-        var now = new Date();
-        var now_str = now.getHours() + ":" + now.getMinutes();
+        var now_str = new Date().toISOString().substring(0, 10);
         $("#" + intput_id).val(now_str);
     });
 
