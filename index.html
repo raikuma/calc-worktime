@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" />
 	<style>
 		label { padding-top: 0.5rem;}
+		.box { display: flex; flex-direction: row; justify-content: space-between; align-items: center; }
+		input[type="time"] { flex-grow: 2; }
 	</style>
 	<script src="scripts/jquery-1.11.1.min.js"></script>
 	<script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
@@ -27,51 +29,77 @@
 			<input type="submit" id="time_reset_btn" value="Reset">
 
 			<form id="form">
-				<div data-role="fieldcontain">
+				<div class="box">
 					<label for="mon_start">Mon Start</label>
 					<input type="time" name="mon_start" id="mon_start" value="10:00">
-					<label for="mon_start">Mon End</label>
+					<button style="width: fit-content" id="mon_start_now">Now</button>
+				</div>
+				<div class="box">
+					<label for="mon_end">Mon End</label>
 					<input type="time" name="mon_end" id="mon_end" value="19:00">
+					<button style="width: fit-content" id="mon_end_now">Now</button>
 				</div>
 				<div>
 					<p id="mon_result"></p>
 				</div>
-				<div data-role="fieldcontain">
+
+				<div class="box">
 					<label for="tue_start">Tue Start</label>
 					<input type="time" name="tue_start" id="tue_start" value="10:00">
-					<label for="tue_start">Tue End</label>
+					<button style="width: fit-content" id="tue_start_now">Now</button>
+				</div>
+				<div class="box">
+					<label for="tue_end">Tue End</label>
 					<input type="time" name="tue_end" id="tue_end" value="19:00">
+					<button style="width: fit-content" id="tue_end_now">Now</button>
 				</div>
 				<div>
 					<p id="tue_result"></p>
 				</div>
-				<div data-role="fieldcontain">
+
+				<div class="box">
 					<label for="wed_start">Wed Start</label>
 					<input type="time" name="wed_start" id="wed_start" value="10:00">
-					<label for="wed_start">Wed End</label>
+					<button style="width: fit-content" id="wed_start_now">Now</button>
+				</div>
+				<div class="box">
+					<label for="wed_end">Wed End</label>
 					<input type="time" name="wed_end" id="wed_end" value="19:00">
+					<button style="width: fit-content" id="wed_end_now">Now</button>
 				</div>
 				<div>
 					<p id="wed_result"></p>
 				</div>
-				<div data-role="fieldcontain">
+
+				<div class="box">
 					<label for="thu_start">Thu Start</label>
 					<input type="time" name="thu_start" id="thu_start" value="10:00">
-					<label for="thu_start">Thu End</label>
+					<button style="width: fit-content" id="thu_start_now">Now</button>
+				</div>
+				<div class="box">
+					<label for="thu_end">Thu End</label>
 					<input type="time" name="thu_end" id="thu_end" value="19:00">
+					<button style="width: fit-content" id="thu_end_now">Now</button>
 				</div>
 				<div>
 					<p id="thu_result"></p>
 				</div>
-				<div data-role="fieldcontain">
+
+				<div class="box">
 					<label for="fri_start">Fri Start</label>
 					<input type="time" name="fri_start" id="fri_start" value="10:00">
-					<label for="fri_start">Fri End</label>
+					<button style="width: fit-content" id="fri_start_now">Now</button>
+				</div>
+				<div class="box">
+					<label for="fri_end">Fri End</label>
 					<input type="time" name="fri_end" id="fri_end" value="19:00">
+					<button style="width: fit-content" id="fri_end_now">Now</button>
 				</div>
 				<div>
 					<p id="fri_result"></p>
 				</div>
+				
+				
 				<input type="submit" id="submit_btn" value="Calculate">
 			</form>
 

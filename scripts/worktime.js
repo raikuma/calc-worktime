@@ -168,9 +168,9 @@ $(document).ready(function () {
             total_total_diff += result.total_diff;
 
             var day = date_id_list[i].split("_")[0];
-            var result_txt = day + " work time: " + sec_to_string(result.work_time) + "<br>";
-            result_txt += day + " rest time: " + sec_to_string(result.rest_time) + "<br>";
-            result_txt += day + " total time: " + sec_to_string(result.total_diff) + "<br>";
+            var result_txt = "work: " + sec_to_string(result.work_time) + " / ";
+            result_txt += "rest: " + sec_to_string(result.rest_time) + " / ";
+            result_txt += "total: " + sec_to_string(result.total_diff);
             $("#" + day + "_result").html(result_txt);
         }
 
@@ -215,7 +215,17 @@ $(document).ready(function () {
     $("input[type='time']").change(function (e) {
         save_cookie();
     });
-    
+
+    $("button").click(function (e) {
+        // prevent default submit action
+        e.preventDefault();
+
+        var id = $(this).attr('id');
+        var intput_id = id.split("_")[0] + "_" + id.split("_")[1];
+        var now = new Date();
+        var now_str = now.getHours() + ":" + now.getMinutes();
+        $("#" + intput_id).val(now_str);
+    });
 
     load_cookie();
 });
