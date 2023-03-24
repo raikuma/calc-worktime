@@ -224,6 +224,8 @@ $(document).ready(function () {
         var intput_id = id.split("_")[0] + "_" + id.split("_")[1];
         var now_str = new Date().toISOString().substring(0, 10);
         $("#" + intput_id).val(now_str);
+
+        save_cookie();
     });
 
     load_cookie();
