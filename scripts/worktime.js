@@ -27,7 +27,7 @@ function calc_worktime(start_time, end_time) {
     var total_diff = end - start;
 
     // end time should be later than start time
-    if (total_diff < 0) {
+    if (total_diff <= 0) {
         console.log("end time should be later than start time")
         return {
             "work_time": 0,
@@ -72,7 +72,7 @@ function calc_worktime(start_time, end_time) {
         rest_time = MINUTE * 30;
     }
 
-    work_time = total_diff - rest_time;
+    work_time = Math.max(total_diff - rest_time, 0);
 
     // work time could be maximum 12hours
     if (work_time > HOUR * 12) {
@@ -222,7 +222,7 @@ $(document).ready(function () {
 
         var id = $(this).attr('id');
         var intput_id = id.split("_")[0] + "_" + id.split("_")[1];
-        var now_str = new Date().toISOString().substring(0, 10);
+        var now_str = new Date().toTimeString().substring(0, 5);
         $("#" + intput_id).val(now_str);
 
         save_cookie();
