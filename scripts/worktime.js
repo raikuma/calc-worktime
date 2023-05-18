@@ -129,6 +129,7 @@ function save_cookie()
         Cookies.set(start_cookie_name, start_time, { expires: 365 });
         Cookies.set(end_cookie_name, end_time, { expires: 365 });
     }
+    Cookies.set("remain_holiday", $("#remain_holiday").val(), { expires: 365 });
 }
 
 function load_cookie()
@@ -146,6 +147,7 @@ function load_cookie()
             $("#" + date_id_list[i + 1]).val(end_time);
         }
     }
+    $("#remain_holiday").val(Cookies.get("remain_holiday"));
 }
 
 $(document).ready(function () {
@@ -225,6 +227,10 @@ $(document).ready(function () {
         var now_str = new Date().toTimeString().substring(0, 5);
         $("#" + intput_id).val(now_str);
 
+        save_cookie();
+    });
+
+    $("#remain_holiday").change(function (e) {
         save_cookie();
     });
 
