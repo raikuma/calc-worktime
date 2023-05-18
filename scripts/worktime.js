@@ -230,7 +230,7 @@ $(document).ready(function () {
         save_cookie();
     });
 
-    $("#remain_holiday").change(function (e) {
+    $('#remain_holiday').bind('keydown input change', function () {
         save_cookie();
     });
 
